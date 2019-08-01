@@ -10,7 +10,11 @@ post '/test' => sub {
   },
   'test';
 
+eval {
 plugin OpenAPI => {url => 'data:///api.yml', schema => 'v3'};
+} or do {
+plan skip_all => $@;
+};
 
 my $t = Test::Mojo->new();
 
