@@ -2,6 +2,7 @@ use Mojo::Base -strict;
 use Test::Mojo;
 use Test::More;
 
+use Mojo::File qw(curfile);
 use Mojolicious::Lite;
 my $id = 'foo';
 get '/user' => sub {
@@ -10,7 +11,7 @@ get '/user' => sub {
   },
   'getUser';
 
-plugin OpenAPI => {url => 'data://main/schema.json'};
+plugin OpenAPI => {url => join '', "file://", curfile->sibling(qw(spec v2-id-spec.json))};
 
 my $t = Test::Mojo->new;
 

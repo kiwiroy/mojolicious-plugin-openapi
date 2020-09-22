@@ -1,0 +1,27 @@
+{
+  "swagger": "2.0",
+  "info": { "version": "0.8", "title": "Test" },
+  "basePath": "/api",
+  "paths": {
+    "/user": {
+      "get": {
+        "operationId": "getUser",
+        "responses": {
+          "200": {
+            "description": "ok",
+            "examples": {
+              "application/json": {"id": "42"}
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {"type": "string"},
+                "id": {"type": "integer"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
